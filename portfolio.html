@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pathan Ameer Khan — AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     EDIT ME
+     - Contact / bio text: search "PROFILE DATA" below
+     - Skills / Experience / Projects / Certificates: search
+       "SKILLS DATA", "EXPERIENCE DATA", "PROJECT DATA",
+       "CERTIFICATE DATA" in the <script> at the bottom
+     - Only three colors are used on purpose — see the palette
+       right below this comment.
+     ============================================================ */
+  :root{
+    --paper: #0E1B2A;      /* background — colour 1 (dark blue) */
+    --ink: #E7EEF4;        /* text / structure — colour 2 (cool off-white) */
+    --accent: #4FA8D8;     /* single accent — colour 3 (bright cool blue) */
+
+    --ink-10: rgba(231,238,244,0.08);
+    --ink-15: rgba(231,238,244,0.12);
+    --ink-30: rgba(231,238,244,0.30);
+    --ink-55: rgba(231,238,244,0.60);
+    --accent-10: rgba(79,168,216,0.14);
+    --accent-30: rgba(79,168,216,0.34);
+
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: inherit; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  ::selection{ background: rgba(79,168,216,0.35); color: var(--ink); }
+
+  /* ---------- top nav ---------- */
+  header{
+    position: sticky; top:0; z-index: 40;
+    background: rgba(14,27,42,0.82);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--ink-10);
+    transition: border-color .3s var(--ease);
+  }
+  .nav-inner{
+    max-width: 880px; margin: 0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 20px 28px;
+  }
+  .logo{ font-size: 1rem; font-weight:600; text-decoration:none; letter-spacing: -0.01em; }
+  nav.section-nav{ position:relative; display:flex; gap: 4px; }
+  nav.section-nav a{
+    position:relative; text-decoration:none; color: var(--ink-55);
+    font-size: 0.92rem; font-weight:500; padding: 8px 14px;
+    transition: color .25s var(--ease);
+    z-index:1;
+  }
+  nav.section-nav a:hover{ color: var(--ink); }
+  nav.section-nav a.active{ color: var(--ink); }
+  .nav-indicator{
+    position:absolute; bottom:0; height:2px; background: var(--accent);
+    border-radius: 2px;
+    transition: left .35s var(--ease), width .35s var(--ease);
+  }
+  .mobile-toggle{ display:none; }
+
+  /* ---------- main ---------- */
+  main{ max-width: 880px; margin: 0 auto; padding: 0 28px; }
+  section{ padding: 96px 0; border-bottom: 1px solid var(--ink-10); }
+  section:last-of-type{ border-bottom:none; }
+  h1,h2,h3{ font-weight:700; margin:0; letter-spacing: -0.02em; }
+  h2{ font-size: 1.7rem; }
+  p{ margin: 14px 0 0 0; }
+
+  /* ---------- hero ---------- */
+  #profile{ padding-top: 64px; }
+  .hero-name{
+    font-size: clamp(2.3rem, 5vw, 3.4rem);
+    line-height: 1.1;
+    opacity:0; transform: translateY(14px);
+    animation: rise .7s var(--ease) forwards;
+  }
+  .hero-role{
+    font-size: 1.05rem; font-weight: 500; color: var(--accent);
+    margin-top: 12px;
+    opacity:0; transform: translateY(14px);
+    animation: rise .7s var(--ease) .08s forwards;
+  }
+  .hero-bio{
+    max-width: 62ch; color: var(--ink-55); font-size: 1.03rem;
+    opacity:0; transform: translateY(14px);
+    animation: rise .7s var(--ease) .16s forwards;
+  }
+  @keyframes rise{ to{ opacity:1; transform: translateY(0); } }
+
+  .stat-row{ display:flex; gap: 44px; margin-top: 40px; flex-wrap:wrap;
+    opacity:0; transform: translateY(14px);
+    animation: rise .7s var(--ease) .24s forwards;
+  }
+  .stat .num{ font-size: 1.7rem; font-weight:700; }
+  .stat .label{ font-size: 0.82rem; color: var(--ink-55); margin-top:2px; }
+
+  .hero-links{ margin-top: 36px; display:flex; gap: 12px; flex-wrap:wrap;
+    opacity:0; transform: translateY(14px);
+    animation: rise .7s var(--ease) .32s forwards;
+  }
+  .btn{
+    font-family: inherit; font-size: 0.92rem; font-weight:500; padding: 11px 20px;
+    border-radius: 6px; text-decoration:none; border: 1px solid var(--ink-15);
+    color: var(--ink); background: transparent; cursor:pointer; display:inline-block;
+    transition: border-color .2s var(--ease), background .2s var(--ease), color .2s var(--ease), transform .15s var(--ease);
+  }
+  .btn:hover{ border-color: var(--accent); color: var(--accent); }
+  .btn:active{ transform: scale(0.97); }
+  .btn.primary{ background: var(--accent); color: var(--paper); border-color: var(--accent); }
+  .btn.primary:hover{ background: #6BBBE3; color: var(--paper); }
+
+  /* ---------- section intro text ---------- */
+  .section-lede{ color: var(--ink-55); max-width: 58ch; }
+
+  /* ---------- filter chips ---------- */
+  .chip-row{ display:flex; flex-wrap:wrap; gap: 8px; margin: 28px 0 32px 0; }
+  .chip{
+    font-family: inherit; font-size: 0.84rem; font-weight:500; padding: 7px 15px;
+    border-radius: 999px; border: 1px solid var(--ink-15); background: transparent;
+    color: var(--ink-55); cursor:pointer;
+    transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+  }
+  .chip:hover{ border-color: var(--accent-30); color: var(--ink); }
+  .chip.active{ background: var(--accent); border-color: var(--accent); color: var(--paper); }
+
+  /* ---------- project cards ---------- */
+  .card-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .card{
+    border: 1px solid var(--ink-15); border-radius: 10px; padding: 24px;
+    cursor:pointer; display:flex; flex-direction:column; gap: 8px;
+    transition: border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+    background: var(--paper);
+  }
+  .card:hover{ border-color: var(--accent-30); transform: translateY(-3px); box-shadow: 0 8px 20px var(--ink-10); }
+  .card:active{ transform: translateY(-1px) scale(0.99); }
+  .card .tag{ font-size: 0.72rem; font-weight:600; color: var(--accent); }
+  .card h3{ font-size: 1.05rem; font-weight:600; }
+  .card .desc{ color: var(--ink-55); font-size: 0.88rem; margin:0; flex-grow:1; }
+  .card .stack{ font-size: 0.76rem; color: var(--ink-30); margin-top: 4px; }
+  .card.hidden{ display:none; }
+
+  /* ---------- expandable rows (experience / certificates) ---------- */
+  .row-list{ border-top: 1px solid var(--ink-10); }
+  .row-item{
+    display:grid; grid-template-columns: 1fr auto auto; gap: 18px; align-items:center;
+    padding: 20px 2px; border-bottom: 1px solid var(--ink-10); cursor:pointer;
+    transition: background .2s var(--ease);
+  }
+  .row-item.exp{ grid-template-columns: 1fr auto; }
+  .row-item:hover{ background: var(--ink-10); }
+  .row-item.hidden{ display:none; }
+  .row-main h3{ font-size: 0.98rem; font-weight: 600; }
+  .row-main .sub{ font-size: 0.85rem; color: var(--ink-55); margin-top:2px; }
+  .row-cat{ font-size: 0.78rem; font-weight:500; color: var(--accent); white-space:nowrap; }
+  .row-date{ font-size: 0.82rem; color: var(--ink-30); white-space:nowrap; }
+  .row-chevron{ color: var(--ink-30); transition: transform .3s var(--ease); font-size: 1rem; }
+  .row-item.open .row-chevron{ transform: rotate(45deg); color: var(--accent); }
+
+  /* smooth accordion using animated grid-template-rows */
+  .row-collapse{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s var(--ease); }
+  .row-collapse.open{ grid-template-rows: 1fr; }
+  .row-collapse-inner{ overflow:hidden; }
+  .row-detail{ padding: 0 2px 22px 2px; color: var(--ink-55); font-size: 0.9rem; }
+  .row-detail ul{ margin: 8px 0 0 0; padding-left: 18px; }
+  .row-detail li{ margin-bottom: 6px; }
+  .row-detail .cred-link{
+    display:inline-block; margin-top: 10px; font-size: 0.86rem; font-weight:500; color: var(--accent);
+    text-decoration:none; border-bottom: 1px solid var(--accent-30); transition: border-color .2s var(--ease);
+  }
+  .row-detail .cred-link:hover{ border-color: var(--accent); }
+
+  /* ---------- skills accordion ---------- */
+  .skills-list{ border-top: 1px solid var(--ink-10); }
+  .skill-group{ border-bottom: 1px solid var(--ink-10); }
+  .skill-head{
+    cursor:pointer; padding: 18px 2px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    transition: color .2s var(--ease);
+  }
+  .skill-head:hover{ color: var(--accent); }
+  .skill-head .group-name{ font-size: 0.98rem; font-weight:600; }
+  .skill-head .group-right{ display:flex; align-items:center; gap:12px; }
+  .skill-head .group-count{ font-size: 0.78rem; color: var(--ink-30); }
+  .skill-head .row-chevron{ font-size: 1.1rem; }
+  .skill-group.open .row-chevron{ transform: rotate(45deg); color: var(--accent); }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap: 8px; padding: 0 2px 20px 2px; }
+  .skill-pill{
+    font-size: 0.8rem; padding: 6px 13px; border: 1px solid var(--ink-15);
+    border-radius: 999px; color: var(--ink-55);
+  }
+
+  /* ---------- contact ---------- */
+  .contact-grid{ display:flex; gap: 40px; margin-top: 28px; flex-wrap:wrap; }
+  .contact-item{ font-size: 0.92rem; }
+  .contact-item .label{ color: var(--ink-30); font-size: 0.75rem; display:block; margin-bottom:6px; }
+  .contact-item a{ color: var(--ink); text-decoration:none; border-bottom: 1px solid var(--ink-15); transition: color .2s var(--ease), border-color .2s var(--ease); }
+  .contact-item a:hover{ color: var(--accent); border-color: var(--accent); }
+  footer{ text-align:center; padding: 32px 0 48px 0; color: var(--ink-30); font-size: 0.82rem; }
+
+  /* ---------- modal ---------- */
+  .modal-backdrop{
+    position:fixed; inset:0; background: rgba(6,12,19,0.65); backdrop-filter: blur(2px);
+    display:flex; align-items:center; justify-content:center; padding: 24px; z-index: 50;
+    opacity:0; pointer-events:none; transition: opacity .25s var(--ease);
+  }
+  .modal-backdrop.open{ opacity:1; pointer-events:auto; }
+  .modal{
+    background: var(--paper); border: 1px solid var(--ink-15); border-radius: 12px; max-width: 540px; width:100%;
+    padding: 36px; position:relative; max-height: 84vh; overflow-y:auto;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+    transform: scale(0.96) translateY(8px); transition: transform .3s var(--ease);
+  }
+  .modal-backdrop.open .modal{ transform: scale(1) translateY(0); }
+  .modal-close{
+    position:absolute; top: 18px; right: 18px; background:none; border:none;
+    color: var(--ink-55); font-size: 1.4rem; cursor:pointer; line-height:1;
+    transition: color .2s var(--ease), transform .2s var(--ease);
+  }
+  .modal-close:hover{ color: var(--accent); transform: rotate(90deg); }
+  .modal .tag{ font-size: 0.76rem; font-weight:600; color: var(--accent); }
+  .modal h3{ font-size: 1.4rem; margin-top:8px; }
+  .modal .stack{ font-size: 0.82rem; color: var(--ink-30); margin-top:14px; }
+  .modal .role{ font-size: 0.9rem; color: var(--ink-55); margin-top: 10px; }
+  .modal .modal-links{ display:flex; gap:10px; margin-top: 22px; flex-wrap:wrap; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 720px){
+    .nav-inner{ padding: 16px 20px; }
+    nav.section-nav{ display:none; position:absolute; top: 100%; left:0; right:0;
+      flex-direction:column; background: var(--paper); border-bottom: 1px solid var(--ink-10); padding: 8px; gap:0; }
+    nav.section-nav.open{ display:flex; }
+    .nav-indicator{ display:none; }
+    .mobile-toggle{ display:block; background:none; border:1px solid var(--ink-15); color: var(--ink);
+      padding: 7px 12px; border-radius:6px; font-size: 0.85rem; cursor:pointer; font-family:inherit; }
+    main{ padding: 0 20px; }
+    section{ padding: 64px 0; }
+    #profile{ padding-top: 40px; }
+    .row-item{ grid-template-columns: 1fr; gap: 4px; }
+    .row-item.exp{ grid-template-columns: 1fr; }
+    .row-date{ order:-1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#profile" class="logo">Pathan Ameer Khan</a> <!-- PROFILE DATA: name -->
+    <button class="mobile-toggle" id="navToggle">Menu</button>
+    <nav class="section-nav" id="sectionNav">
+      <a href="#profile" data-section="profile">Profile</a>
+      <a href="#skills" data-section="skills">Skills</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#projects" data-section="projects">Projects</a>
+      <a href="#certificates" data-section="certificates">Certificates</a>
+      <a href="#contact" data-section="contact">Contact</a>
+      <span class="nav-indicator" id="navIndicator"></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ---------- PROFILE ---------- -->
+  <section id="profile">
+    <h1 class="hero-name">Pathan Ameer Khan</h1>
+    <p class="hero-role">AI/ML Engineer — Computer Vision, Agentic AI &amp; Robotics</p>
+    <p class="hero-bio">
+      M.Tech graduate in Mechatronics with specialized AI/ML expertise in
+      production-ready model deployment, computer vision, and agentic AI
+      systems. I build end-to-end solutions with Python, TensorFlow, PyTorch,
+      and OpenCV, with hands-on experience across both hardware and software —
+      including developing drones from scratch — and a strong foundation in
+      LLMs, RAG architectures, and business intelligence automation.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">6</div><div class="label">projects shipped</div></div>
+      <div class="stat"><div class="num">5</div><div class="label">certifications</div></div>
+      <div class="stat"><div class="num">8.4</div><div class="label">CGPA · M.Tech Mechatronics</div></div>
+    </div>
+
+    <div class="hero-links">
+      <a class="btn primary" href="https://drive.google.com/drive/u/0/folders/1cx830dZgQKCQsmIuHAjGZGyLbHyeMXIG" target="_blank" rel="noopener">View full portfolio</a>
+      <a class="btn" href="mailto:pathankhanameer@gmail.com">Email me</a>
+      <a class="btn" href="#projects">See projects</a>
+    </div>
+  </section>
+
+  <!-- ---------- SKILLS ---------- -->
+  <section id="skills">
+    <h2>Technical skills</h2>
+    <p class="section-lede">Grouped by area — click a category to expand it.</p>
+    <div class="skills-list" id="skillsList"></div>
+  </section>
+
+  <!-- ---------- EXPERIENCE ---------- -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <p class="section-lede">Click a role to see what it involved.</p>
+    <div class="row-list" id="expList"></div>
+  </section>
+
+  <!-- ---------- PROJECTS ---------- -->
+  <section id="projects">
+    <h2>Selected work</h2>
+    <p class="section-lede">Grouped by discipline — filter by category, click a card for the full write-up.</p>
+    <div class="chip-row" id="projectFilters"></div>
+    <div class="card-grid" id="projectGrid"></div>
+  </section>
+
+  <!-- ---------- CERTIFICATES ---------- -->
+  <section id="certificates">
+    <h2>Certifications</h2>
+    <p class="section-lede">Filter by area, then click any line for the issuer.</p>
+    <div class="chip-row" id="certFilters"></div>
+    <div class="row-list" id="certList"></div>
+  </section>
+
+  <!-- ---------- CONTACT ---------- -->
+  <section id="contact">
+    <h2>Let's talk</h2>
+    <p class="section-lede">Open to AI/ML engineering roles spanning computer vision, agentic AI, and applied robotics.</p>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="label">Email</span><a href="mailto:pathankhanameer@gmail.com">pathankhanameer@gmail.com</a></div>
+      <div class="contact-item"><span class="label">Phone</span><a href="tel:+916305098017">+91 6305098017</a></div>
+      <div class="contact-item"><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/ameerkhanp" target="_blank" rel="noopener">linkedin.com/in/ameerkhanp</a></div>
+      <div class="contact-item"><span class="label">GitHub</span><a href="https://github.com/ameersensei" target="_blank" rel="noopener">github.com/ameersensei</a></div>
+      <div class="contact-item"><span class="label">Location</span><span>India</span></div>
+    </div>
+  </section>
+
+  <footer>© 2026 Pathan Ameer Khan</footer>
+</main>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script>
+/* ============================================================
+   SKILLS DATA
+   ============================================================ */
+const SKILLS = [
+  { group: "Programming & Databases", items: ["Python", "SQL", "REST APIs"] },
+  { group: "Machine Learning & Deep Learning", items: ["Scikit-learn", "PyTorch", "TensorFlow", "CNNs", "Transfer Learning", "Model Optimization", "Feature Engineering"] },
+  { group: "MLOps & Deployment", items: ["Vertex AI", "GCP", "Docker", "MLflow", "Model Deployment", "API Integration", "Pipeline Development", "FastAPI"] },
+  { group: "Computer Vision", items: ["OpenCV", "Image Classification", "Object Detection", "Face Behavior Detection", "Image Preprocessing", "YOLO", "R-CNN", "Faster R-CNN"] },
+  { group: "Generative AI & LLMs", items: ["LLMs", "RAG", "Agentic AI", "Multi-Agent Systems", "Google ADK", "OpenAI API", "Google Gemini", "Prompt Engineering", "ReAct (self-reflection)"] },
+  { group: "Robotics & Frameworks", items: ["ROS2", "URDF", "SDF", "Gazebo simulation"] },
+  { group: "NLP", items: ["NLTK", "Text Processing", "Sentiment Analysis"] },
+  { group: "Data & Visualization", items: ["EDA", "Tableau", "Power BI"] }
+];
+
+/* ============================================================
+   EXPERIENCE DATA
+   ============================================================ */
+const EXPERIENCE = [
+  {
+    title: "Freelance — AI/ML Engineer",
+    date: "Sep 2025 – Present",
+    bullets: [
+      "Delivering end-to-end AI/ML solutions for clients across domains including computer vision and generative AI",
+      "Building and deploying LLM-powered and agentic AI applications tailored to client business needs",
+      "Developing production-ready multi-agent systems using Google ADK, OpenAI API, and Vertex AI"
+    ],
+    link: null
+  },
+  {
+    title: "A.I.Spry — AI Development Intern (Remote)",
+    date: "Jan 2024 – Mar 2024",
+    bullets: [
+      "Built a real-time emotion detection system using CNN and PyTorch on 56,000+ facial images across 7 emotion classes",
+      "Applied ResNet50 transfer learning with data augmentation, achieving 92.47% accuracy on the test dataset",
+      "Deployed the model with OpenCV for real-time inference and integrated a REST API for production use",
+      "Collaborated on end-to-end ML pipeline development and model optimization workflows"
+    ],
+    link: { label: "View credential", url: "https://drive.google.com/file/d/1YzW1GOvpq7FHi9s86kudO5izRoinxdUR/view?usp=drive_link" }
+  }
+];
+
+/* ============================================================
+   PROJECT DATA
+   ============================================================ */
+const PROJECTS = [
+  {
+    category: "Generative AI",
+    title: "Monday.com Business Intelligence AI Agent",
+    desc: "Production multi-agent system enabling natural-language BI queries for monday.com workspaces.",
+    stack: "Vertex AI · Google ADK · Gemini 2.5 · ReAct",
+    detail: "Deployed a production multi-agent system on Vertex AI using Google ADK and Gemini 2.5 to enable natural language business intelligence queries for monday.com workspaces, using the ReAct framework for self-reflection and error rectification.",
+    role: "Role: end-to-end development, deployment on Vertex AI, and production integration.",
+    links: [{label:"GitHub", url:"https://github.com/ameersensei/monday_bi_agent.git"}]
+  },
+  {
+    category: "Generative AI",
+    title: "Agricultural AI Agent for Crop Disease Detection",
+    desc: "RAG-powered agent diagnosing crop disease and recommending treatment.",
+    stack: "Google ADK · Gemini · RAG · Google Search tools",
+    detail: "RAG-powered agent using Google ADK with Gemini as the LLM and Google Search tools for crop disease diagnosis and treatment recommendations.",
+    role: "Role: individual end-to-end project, including architecture design, coding, testing, and deployment.",
+    links: [{label:"GitHub", url:"https://github.com/ameersensei/agricultural_agent.git"}]
+  },
+  {
+    category: "Computer Vision",
+    title: "Advanced Skin Disease Detection System",
+    desc: "AI-powered diagnostic tool classifying skin conditions from images.",
+    stack: "Image Processing · Neural Networks",
+    detail: "AI-powered diagnostic tool using image processing and neural networks for accurate skin condition classification.",
+    role: "",
+    links: [{label:"GitHub", url:"https://github.com/ameersensei/disease-detection.git"}]
+  },
+  {
+    category: "Robotics & IoT",
+    title: "Autonomous Robot for Pesticide Spraying on Crops",
+    desc: "Autonomous agricultural robot that navigates fields and sprays pesticide with precision.",
+    stack: "ROS · Navigation Stack",
+    detail: "Developed an autonomous agricultural robot using ROS for navigating crop fields and spraying pesticides with precision, reducing manual labor and improving efficiency.",
+    role: "Role: designed the robot architecture, implemented the ROS navigation stack, and integrated the spraying mechanism.",
+    links: []
+  },
+  {
+    category: "Robotics & IoT",
+    title: "Smart Industrial Automation System",
+    desc: "IoT-based water pressure control system with automated valve integration.",
+    stack: "NodeMCU · Solenoid Valves · IoT",
+    detail: "IoT-based water pressure control system utilizing NodeMCU microcontrollers and automated solenoid valve integration.",
+    role: "Role: designed and implemented the electronic connections and control logic.",
+    links: []
+  },
+  {
+    category: "Robotics & IoT",
+    title: "Intelligent Insole System for Diabetic Care",
+    desc: "Wearable predictive system for diabetic foot ulcer risk.",
+    stack: "Pressure Sensors · Embedded Electronics · Arduino",
+    detail: "Predictive system for diabetic foot ulcers with a daily wearable shoe integration, using pressure sensors and embedded electronics for diabetic patients.",
+    role: "Role: created the design, electronic connections, and wrote the Arduino software.",
+    links: []
+  }
+];
+
+/* ============================================================
+   CERTIFICATE DATA
+   ============================================================ */
+const CERTIFICATES = [
+  { category: "AI & ML", title: "AI Diploma", issuer: "SUNY University", date: "2024" },
+  { category: "Generative AI", title: "Google AI Agents Intensive", issuer: "Google", date: "2025" },
+  { category: "Data Science", title: "Data Science using Python & R", issuer: "360DigiTMG", date: "" },
+  { category: "Generative AI", title: "Hugging Face LLM Certificate", issuer: "Hugging Face", date: "" },
+  { category: "Data Visualization", title: "Tableau Certification", issuer: "360DigiTMG", date: "" }
+];
+
+/* ============================================================
+   Rendering + interaction
+   ============================================================ */
+const skillsList = document.getElementById('skillsList');
+const expList = document.getElementById('expList');
+const projectGrid = document.getElementById('projectGrid');
+const projectFilters = document.getElementById('projectFilters');
+const certList = document.getElementById('certList');
+const certFilters = document.getElementById('certFilters');
+const modalBackdrop = document.getElementById('modalBackdrop');
+const modalContent = document.getElementById('modalContent');
+
+function uniqueCategories(items){ return ["All", ...new Set(items.map(i => i.category))]; }
+
+function toggleCollapse(headerEl, collapseEl){
+  const isOpen = collapseEl.classList.contains('open');
+  collapseEl.classList.toggle('open', !isOpen);
+  headerEl.classList.toggle('open', !isOpen);
+}
+
+// ---- Skills ----
+function renderSkills(){
+  skillsList.innerHTML = SKILLS.map((g, i) => `
+    <div class="skill-group ${i===0 ? 'open' : ''}" data-idx="${i}">
+      <div class="skill-head">
+        <span class="group-name">${g.group}</span>
+        <span class="group-right">
+          <span class="group-count">${g.items.length}</span>
+          <span class="row-chevron">+</span>
+        </span>
+      </div>
+      <div class="row-collapse ${i===0 ? 'open' : ''}">
+        <div class="row-collapse-inner">
+          <div class="skill-tags">${g.items.map(item => `<span class="skill-pill">${item}</span>`).join('')}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  skillsList.querySelectorAll('.skill-group').forEach(group => {
+    const head = group.querySelector('.skill-head');
+    const collapse = group.querySelector('.row-collapse');
+    head.addEventListener('click', () => toggleCollapse(group, collapse));
+  });
+}
+
+// ---- Experience ----
+function renderExperience(){
+  expList.innerHTML = EXPERIENCE.map((e, idx) => `
+    <div>
+      <div class="row-item exp" data-idx="${idx}">
+        <div class="row-main"><h3>${e.title}</h3></div>
+        <div class="row-date">${e.date}</div>
+      </div>
+      <div class="row-collapse">
+        <div class="row-collapse-inner">
+          <div class="row-detail">
+            <ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+            ${e.link ? `<a class="cred-link" href="${e.link.url}" target="_blank" rel="noopener">${e.link.label} ↗</a>` : ''}
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  expList.querySelectorAll('.row-item.exp').forEach(row => {
+    const collapse = row.nextElementSibling;
+    row.addEventListener('click', () => toggleCollapse(row, collapse));
+  });
+}
+
+// ---- Projects ----
+function renderProjectFilters(){
+  const cats = uniqueCategories(PROJECTS);
+  projectFilters.innerHTML = cats.map((c,i) => `<button class="chip ${i===0 ? 'active' : ''}" data-cat="${c}">${c}</button>`).join('');
+  projectFilters.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      projectFilters.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      filterProjects(chip.dataset.cat);
+    });
+  });
+}
+
+function renderProjects(){
+  projectGrid.innerHTML = PROJECTS.map((p, idx) => `
+    <div class="card" data-cat="${p.category}" data-idx="${idx}">
+      <span class="tag">${p.category}</span>
+      <h3>${p.title}</h3>
+      <p class="desc">${p.desc}</p>
+      <div class="stack">${p.stack}</div>
+    </div>
+  `).join('');
+  projectGrid.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => openProjectModal(PROJECTS[card.dataset.idx]));
+  });
+}
+
+function filterProjects(cat){
+  projectGrid.querySelectorAll('.card').forEach(card => {
+    card.classList.toggle('hidden', cat !== 'All' && card.dataset.cat !== cat);
+  });
+}
+
+function openProjectModal(p){
+  modalContent.innerHTML = `
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <span class="tag">${p.category}</span>
+    <h3>${p.title}</h3>
+    <p>${p.detail}</p>
+    ${p.role ? `<p class="role">${p.role}</p>` : ''}
+    <div class="stack">${p.stack}</div>
+    ${p.links.length ? `<div class="modal-links">${p.links.map(l => `<a class="btn" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}</div>` : ''}
+  `;
+  modalBackdrop.classList.add('open');
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+}
+
+function closeModal(){ modalBackdrop.classList.remove('open'); }
+modalBackdrop.addEventListener('click', e => { if(e.target === modalBackdrop) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+// ---- Certificates ----
+function renderCertFilters(){
+  const cats = uniqueCategories(CERTIFICATES);
+  certFilters.innerHTML = cats.map((c,i) => `<button class="chip ${i===0 ? 'active' : ''}" data-cat="${c}">${c}</button>`).join('');
+  certFilters.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      certFilters.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      filterCerts(chip.dataset.cat);
+    });
+  });
+}
+
+function renderCerts(){
+  certList.innerHTML = CERTIFICATES.map((c, idx) => `
+    <div>
+      <div class="row-item" data-cat="${c.category}" data-idx="${idx}">
+        <div class="row-main"><h3>${c.title}</h3><div class="sub">${c.issuer}</div></div>
+        <div class="row-cat">${c.category}</div>
+        <div class="row-date">${c.date}</div>
+      </div>
+      <div class="row-collapse">
+        <div class="row-collapse-inner">
+          <div class="row-detail">Issued by ${c.issuer}${c.date ? ` · ${c.date}` : ''}.</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  certList.querySelectorAll('.row-item').forEach(row => {
+    const collapse = row.nextElementSibling;
+    row.addEventListener('click', () => toggleCollapse(row, collapse));
+  });
+}
+
+function filterCerts(cat){
+  certList.querySelectorAll('.row-item').forEach(row => {
+    const show = cat === 'All' || row.dataset.cat === cat;
+    row.classList.toggle('hidden', !show);
+    row.nextElementSibling.classList.toggle('hidden', !show);
+  });
+}
+
+// ---- Sliding nav indicator + scroll spy ----
+const navLinks = document.querySelectorAll('#sectionNav a');
+const navIndicator = document.getElementById('navIndicator');
+const sections = document.querySelectorAll('main section');
+const navToggle = document.getElementById('navToggle');
+const sectionNav = document.getElementById('sectionNav');
+
+function moveIndicator(link){
+  if(!link) return;
+  navIndicator.style.left = link.offsetLeft + 'px';
+  navIndicator.style.width = link.offsetWidth + 'px';
+}
+
+function setActive(id){
+  navLinks.forEach(l => l.classList.remove('active'));
+  const active = document.querySelector(`#sectionNav a[data-section="${id}"]`);
+  if(active){ active.classList.add('active'); moveIndicator(active); }
+}
+
+navToggle.addEventListener('click', () => sectionNav.classList.toggle('open'));
+navLinks.forEach(link => link.addEventListener('click', () => sectionNav.classList.remove('open')));
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if(entry.isIntersecting) setActive(entry.target.id); });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => observer.observe(s));
+
+window.addEventListener('resize', () => {
+  const current = document.querySelector('#sectionNav a.active');
+  moveIndicator(current);
+});
+
+// ---- init ----
+renderSkills();
+renderExperience();
+renderProjectFilters();
+renderProjects();
+renderCertFilters();
+renderCerts();
+setActive('profile');
+</script>
+</body>
+</html>
